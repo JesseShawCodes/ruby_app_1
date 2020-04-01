@@ -1,0 +1,19 @@
+<h1>Hello</h1>
+<section>
+    <%= 1 + 1 %>
+    <p><% target = "world" %></p>
+    <p><%= "Hello #{target}"%></p>
+    <span></span>
+    <p>
+        <% @array.each do |n|%>
+            <%= n %>
+        <% end %>
+    </p>
+    <p id="json-data" style="display: none"><%= @data %></p>
+    <%= link_to('Index Page', {:action => 'index'}) %>
+</section>
+<script>
+    var data = document.getElementById("json-data").innerHTML;
+    var dataJson = JSON.parse(data);
+    console.log(dataJson);
+</script>
