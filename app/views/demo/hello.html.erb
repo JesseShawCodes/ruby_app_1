@@ -11,6 +11,20 @@
     </p>
     <p id="json-data" style="display: none"><%= @data %></p>
     <%= link_to('Index Page', {:action => 'index'}) %>
+    <div>
+        <p>
+            ID: <%= @id %>
+        </p>
+        <p>
+            ID: <%= params[:id] %>
+        </p>
+        <p>
+            Page: <%= @page %>
+        </p>
+        <p>
+            Next Page: <%= @page.to_i + 1 %>
+        </p>
+    </div>
 </section>
 <script>
     var data = document.getElementById("json-data").innerHTML;
