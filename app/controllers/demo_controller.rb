@@ -7,18 +7,18 @@ class DemoController < ApplicationController
     uri = URI(url)
     response = Net::HTTP.get(uri)
     @data = response
-    puts "hello"
+    # puts "hello"
     render ('hello')
   end
 
   def index
-    puts "index"
+    # puts "index"
     render('index')
   end
 
   #/demo/hello
   def hello
-    puts ("Testing...")
+    # puts ("Testing...")
     @array = [1, 2, 3, 4, 5]
     @id = params['id']
     @page = params[:page]
@@ -26,13 +26,13 @@ class DemoController < ApplicationController
   end
 
   def other_hello
-    puts ('re-direct')
+    # puts ('re-direct')
     # redirect_to(:controller => 'demo', :action => 'index')
     redirect_to(:action => 'index')
   end
 
   def lynda
-    puts ('lynda!')
+    # puts ('lynda!')
     redirect_to('https://www.lynda.com')
   end 
 end
