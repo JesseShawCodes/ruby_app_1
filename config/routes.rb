@@ -5,8 +5,22 @@ Rails.application.routes.draw do
   get 'demo/data'
   get 'demo/hello'
 
-  get 'demo/other_hello'
-  get 'demo/lynda'
+  # Resourceful Routes
+  resources :subjects do
+    member do
+      get :delete
+    end
+  end
+  resources :pages
+  resources :sections
+=begin
+  Resourceful URL Helpers
+
+  {:controller => 'subjects', :action => 'show', :id => 5}
+  subject_path(5)
+
+  These two commands above are the same
+=end
 
   # default route
   # get ':controller(/:action(/:id))'
