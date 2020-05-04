@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'demo#index'
+  # root 'demo#index'
 
   get 'demo/index'
   get 'demo/data'
@@ -26,4 +26,15 @@ Rails.application.routes.draw do
   # get ':controller(/:action(/:id))'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'static#index'
+  namespace :v1, defaults: { format: 'json' } do 
+    get 'things', to: 'things#index'
+  end
+
+  # Forward all requests to StaticController#index but requests
+  # must be non-Ajax (!req.xhr?) and HTML Mime type (req.format.html?).
+  # This does not include the root ("/") path.
+  get '*page', to: 'static#index', constraints: ->(req) do
+    !req.xhr? && req.format.html?
+  end
 end

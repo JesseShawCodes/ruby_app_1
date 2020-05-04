@@ -1,2 +1,20 @@
-<h1>Subjects#show</h1>
-<p>Find me in app/views/subjects/show.html.erb</p>
+<%= link_to("<< Back to List", "/subjects", :class => 'back-link') %>
+
+<div>
+    <h2>Show Subject</h2>
+    <div>
+        <span style="font-weight: bold">Name:</span> <%= @subject.name %>
+    </div>
+    <div>
+        <span style="font-weight: bold">Position:</span> <%= @subject.position %>
+    </div>
+    <div>
+        <span style="font-weight: bold">Visible:</span> <%= @subject.visible ? 'true' : 'false' %>
+    </div>
+    <div>
+        <span style="font-weight: bold">Created:</span> <%= @subject.created_at %>
+    </div>
+    <div>
+        <span style="font-weight: bold">Updated:</span> <%= @subject.updated_at %>
+    </div>
+</div>

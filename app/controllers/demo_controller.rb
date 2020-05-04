@@ -12,7 +12,18 @@ class DemoController < ApplicationController
   end
 
   def index
-    # puts "index"
+    require 'net/http'
+    require 'json'
+    puts "index start"
+
+    url = 'https://jsonplaceholder.typicode.com/posts/'
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    json1 = JSON.parse(response)
+
+    puts json1
+    puts('-----------------------')
+    puts "Index"
     render('index')
   end
 
